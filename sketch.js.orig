@@ -1,0 +1,109 @@
+let logoImage;
+let s;
+let nextBtn;
+let currentQS;
+let prevQS;
+let nextQS;
+function preload()
+{
+
+<<<<<<< HEAD
+  logoImage = loadImage("img/Logo.png");
+
+=======
+  logoImage = loadImage("./img/logo.png");
+  s = new QuestionScreen(window.innerWidth, window.innerHeight, 20, 60, 80);
+/*  s.addQuestion("WAZAAAAAAP?");
+  s.addQuestion("YAAAS IT WORKS");
+  s.addQuestion("FINALLY!");s.addQuestion("WAZAAAAAAP?");
+  s.addQuestion("YAAAS IT WORKS");
+  s.addQuestion("FINALLY!");s.addQuestion("WAZAAAAAAP?");
+  s.addQuestion("YAAAS IT WORKS");
+  s.addQuestion("FINALLY!");*/
+>>>>>>> 5abef3bdd7130aff7a51d3381206689e4911d260
+}
+
+function setup() {
+	createCanvas(window.innerWidth, window.innerHeight);
+  nextBtn = new Button(this, "Next", this.width / 2, this.height - this.height/8, 0);
+  s = new QuestionScreen(window.innerWidth, window.innerHeight, 20, 60, 80);
+  s2 = new QuestionScreen(window.innerWidth, window.innerHeight, 60, 20, 80);
+  addQuestions(s, ["I think", "This is actually", "Working"]);
+  addQuestions(s2, ["Pretty well!"]);
+  s.nextQS = s2;
+  s2.nextQS = s;
+}
+
+var alphaCounter = 0;
+function draw() {
+  background(187, 190, 100);
+
+  push();
+  translate(window.innerWidth/2 - logoImage.width/2, window.innerHeight/2 - logoImage.height/2);
+
+  if(alphaCounter < 255)
+    tint(255, alphaCounter++);
+  image(logoImage, 0, 0);
+  pop();
+  //tint(255, 255);
+  nextBtn.drawButton();
+<<<<<<< HEAD
+
+  //Draw all screens
+  if(nextQS){
+    if(nextQS.startAt === 0){
+      nextQS.startAt = nextQS.width;
+
+      nextQS = null
+    }
+    nextQS.slideFromRight();
+  }else if(prevQS){
+    prevQS.drawScreen();
+  }
+
+
+=======
+  if(nextBtn.clicked(mouseX, mouseY))
+    goToQS(s);
+>>>>>>> 5abef3bdd7130aff7a51d3381206689e4911d260
+}
+
+function addQuestions(qs, ql)
+{
+<<<<<<< HEAD
+  for(var q of ql)
+    qs.addQuestion(q);
+}
+
+function goToQS(qs)
+{
+  if(currentQS)
+    for(var qListItem of currentQS.questionList)
+      qListItem[1].hide();
+
+  nextQS = qs;
+  prevQS = currentQS;
+  currentQS = qs;
+=======
+  s.addQuestion("WAZAAAAAAP?");
+  s.addQuestion("YAAAS IT WORKS");
+  s.addQuestion("FINALLY!");
+  s.addQuestion("WAZAAAAAAP?");
+  s.addQuestion("YAAAS IT WORKS");
+  s.addQuestion("FINALLY!");
+  s.slideFromRight();
+
+  // print(s);
+>>>>>>> 5abef3bdd7130aff7a51d3381206689e4911d260
+}
+/*
+function mouseClicked(){
+  if(nextBtn.clicked(mouseX, mouseY))
+  {
+    if(currentQS)
+      goToQS(currentQS.nextQS);
+    else
+      goToQS(s)
+  }
+
+}*/
